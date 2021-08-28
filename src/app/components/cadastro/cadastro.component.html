@@ -1,0 +1,72 @@
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Nome</label>
+                <input [(ngModel)]="user.name" name="name" [value]="user.name" type="text" class="form-control" placeholder="Nome">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="inputPassword4">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Endereço</label>
+                <input [(ngModel)]="user.endereco.logradouro" type="text" name="logradouro" class="form-control" placeholder="Endereço">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Número</label>
+                <input [(ngModel)]="user.endereco.numero" type="text" name="numero" class="form-control" placeholder="1234">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">Complemento</label>
+                <input [(ngModel)]="user.endereco.complemento" type="text" name="complemento" class="form-control" id="inputComplemento">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">Estado</label>
+                <select id="inputState" [(ngModel)]="user.endereco.estado" name="estado" class="form-control">
+        <option selected>Selecione...</option>
+        <option value="SP">SP</option>
+      </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Cep</label>
+                <input [(ngModel)]="user.endereco.cep" type="text" name="cep" class="form-control" id="inputZip">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputCity">Cidade</label>
+            <input [(ngModel)]="user.endereco.cidade" type="text" name="cidade" class="form-control">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">Bairo</label>
+                <input [(ngModel)]="user.endereco.bairro" type="text" name="bairro" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputCity">Ponto de Referencia</label>
+                <input type="text" [(ngModel)]="user.endereco.pontoReferencia" name="pontoReferencia" class="form-control">
+            </div>
+        </div>
+        <div *ngIf="message" class="alert alert-success" role="alert">
+            Cadastro Relizado com Sucesso
+        </div>
+        <div *ngIf="error" class="alert alert-danger" role="alert">
+            <h6 class="alert-heading">{{error}}</h6>
+            <li *ngFor="let err of erroBody">
+                {{err}}
+            </li>
+        </div>
+        <button type="submit" (click)="cadastro()" class="btn btn-primary">Cadastro</button>
+    </form>
+</div>
