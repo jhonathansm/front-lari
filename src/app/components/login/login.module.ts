@@ -1,9 +1,10 @@
+import { SpinnerModule } from './../../shared/util/spinner.module';
 import { LoginComponent } from './login.component';
 import { NgModule } from "@angular/core";
-import { MatCardModule } from "@angular/material/card";
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './service/login.service';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -11,13 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent
   ],
   imports: [
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    SpinnerModule
   ],
   exports: [
     LoginComponent
+  ],
+  providers: [
+    LoginService
   ]
 })
 export class LoginModule {}
