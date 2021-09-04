@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from './service/login.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,6 @@ export class LoginComponent implements OnInit {
   };
 
   public loading = false;
-  public form = false;
 
   constructor(
     private router: Router,
@@ -29,14 +29,13 @@ export class LoginComponent implements OnInit {
 
   public login() {
     this.loading = true;
-    this.form = true;
-    this.service.login(this.user).subscribe((response) => {
+    this.service.login(this.user).pipe(delay(1000))
+    .subscribe((response) => {
       this.loading = false;
-      this.form = false;
+      this.router.navigate(['/home'])
       console.log(response);
     }, (erro) => {
       this.loading = false;
-      this.form = false;
       console.log(erro);
     });
   }

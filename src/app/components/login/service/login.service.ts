@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpResponse, HttpHeaders } from '@angular/common/http';
@@ -21,8 +22,9 @@ export class LoginService {
           'Access-Control-Allow-Methods': 'POST',
       })
     };
-    return this.http.post<any>("http://localhost:8080/users/login", request).pipe(
-      map((response: HttpResponse<any>) => {
+    return this.http.post<any>(`${environment.api_url}/users/login`, request).pipe(
+      map((response: any) => {
+        localStorage.setItem('token', response.token);
         return response;
       }),
       catchError((erro: HttpErrorResponse) => {

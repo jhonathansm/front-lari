@@ -1,3 +1,4 @@
+import { TokenInterceptor } from './components/interceptor/token.interceptor';
 import { SpinnerModule } from './shared/util/spinner.module';
 import { LoginModule } from './components/login/login.module';
 import { NgModule } from '@angular/core';
@@ -10,10 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { CadastroModule } from './components/cadastro/cadastro.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,13 @@ import { CadastroModule } from './components/cadastro/cadastro.module';
     CadastroModule,
     SpinnerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

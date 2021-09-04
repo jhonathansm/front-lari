@@ -1,17 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3 text-center">
-            <form *ngIf="!form" class="form-signin">
+            <form *ngIf="!loading" class="form-signin">
                 <h1 class="h3 mb-3 font-weight-normal">Login</h1>
                 <label for="email" class="sr-only">Email</label>
                 <input type="email" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required autofocus>
                 <label for="password" class="sr-only">Senha</label>
                 <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Senha" required>
-                <!-- <div class="checkbox mb-3"> -->
-                <!-- <label> -->
-                <!-- <input type="checkbox" value="remember-me"> Remember me -->
-                <!-- </label> -->
-                <!-- </div> -->
+
                 <button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">Sign in</button>
             </form>
         </div>
