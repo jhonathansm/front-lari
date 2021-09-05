@@ -1,6 +1,5 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from './service/login.service';
 import { delay } from 'rxjs/operators';
 
@@ -15,7 +14,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
-
+  public usuario: string = '';
   public loading = false;
 
   constructor(
@@ -33,10 +32,14 @@ export class LoginComponent implements OnInit {
     .subscribe((response) => {
       this.loading = false;
       this.router.navigate(['/home'])
-      console.log(response);
     }, (erro) => {
       this.loading = false;
-      console.log(erro);
     });
+  }
+
+  public disabled() {
+    return ((this.user.email === undefined || this.user.email === '') &&
+           (this.user.password === undefined || this.user.password === ''));
+
   }
 }

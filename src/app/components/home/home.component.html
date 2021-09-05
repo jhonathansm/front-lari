@@ -1,1 +1,9 @@
-<p>home works!</p>
+<nav class="nav flex-column">
+    <h6>{{usuario}}</h6>
+    <a class="nav-link active" href="#">Active</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+
+<p *ngIf="validation">Bem Vindo {{usuario}}</p>

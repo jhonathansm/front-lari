@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public usuario: string | null = '';
+  public validation: any;
   constructor() { }
 
   ngOnInit(): void {
+    this.validation = sessionStorage.getItem('context');
+    this.usuario = sessionStorage.getItem('name');
   }
 
 }
