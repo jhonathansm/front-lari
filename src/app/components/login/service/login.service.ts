@@ -10,7 +10,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class LoginService {
 
   public menuEvent = new EventEmitter<boolean>();
-
+  public autenticado = false;
   constructor(
     private http: HttpClient
   ) { }
@@ -32,12 +32,18 @@ export class LoginService {
           sessionStorage.setItem('context', 'true');
         }
         this.menuEvent.emit(true);
+        this.autenticado = true;
         return response;
       }),
       catchError((erro: HttpErrorResponse) => {
         this.menuEvent.emit(false);
+        this.autenticado = false;
         return throwError(erro);
       })
     );
+  }
+
+  public usuarioAutenticado() {
+    return this.autenticado;
   }
 }

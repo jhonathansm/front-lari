@@ -9,9 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatIconModule } from '@angular/material/icon';
 import { CadastroModule } from './components/cadastro/cadastro.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './components/guards/auth.guard';
 
 
 @NgModule({
@@ -32,7 +32,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
