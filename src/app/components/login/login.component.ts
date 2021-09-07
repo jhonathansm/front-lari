@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.service.login(this.user).pipe(delay(1000))
     .subscribe((response) => {
+      console.log(response);
       this.loading = false;
       this.router.navigate(['/home'])
     }, (erro) => {

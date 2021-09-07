@@ -1,3 +1,4 @@
+import { AdminModule } from './components/home/admin/admin.module';
 import { HomeModule } from './components/home/home.module';
 import { TokenInterceptor } from './components/interceptor/token.interceptor';
 import { SpinnerModule } from './shared/util/spinner.module';
@@ -25,7 +26,8 @@ import { AuthGuard } from './components/guards/auth.guard';
     LoginModule,
     CadastroModule,
     SpinnerModule,
-    HomeModule
+    HomeModule,
+    AdminModule
   ],
   providers: [
     {
