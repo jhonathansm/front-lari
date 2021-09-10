@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastroModule } from './components/cadastro/cadastro.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './components/guards/auth.guard';
-
+import { AdminRoutingModule } from './components/home/admin/admin-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { AuthGuard } from './components/guards/auth.guard';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AdminRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
     CadastroModule,

@@ -1,24 +1,27 @@
-import { Produto } from './interface/produto.interface';
-import { Component, OnInit } from "@angular/core";
-import { CadastroService } from './cadastro-produto/cadastro.service';
+import { CadastroService } from './../cadastro-produto/cadastro.service';
+import { Produto } from './../interface/produto.interface';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: 'app-cadastro',
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class CadastroAdminComponent implements OnInit {
 
   public produto: Produto = new Produto();
   message = '';
   error: string = '';
-  usuario: any;
   constructor(
     private produtoService: CadastroService
   ) {}
 
   public ngOnInit() {
-    this.usuario = sessionStorage.getItem('name');
+    this.produtoService.listarProtudos().subscribe((res) => {
+      console.log(res, 'res');
+    }, (erro) => {
+      console.log(erro, 'erro');
+    });
   }
 
   public request() {
@@ -38,4 +41,6 @@ export class AdminComponent implements OnInit {
             (this.produto.peso === 0 || this.produto.peso === undefined)
     )
   }
+
+
 }

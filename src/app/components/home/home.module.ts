@@ -1,3 +1,4 @@
+import { AdminModule } from './admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from "@angular/core";
@@ -10,7 +11,8 @@ import { FormsModule } from '@angular/forms';
   imports:[
     CommonModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AdminModule
   ]
 })
 export class HomeModule {}

@@ -1,0 +1,46 @@
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Nome</label>
+                <input [(ngModel)]="produto.name" name="name" [value]="produto.name" type="text" class="form-control" placeholder="Nome">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="description">Descrição</label>
+                <input [(ngModel)]="produto.description" name="description" type="text" class="form-control" id="inputEmail4">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="password">Valor</label>
+                <input [(ngModel)]="produto.valor" name="valor" type="text" class="form-control" id="inputPassword4">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="peso">Peso</label>
+                <input [(ngModel)]="produto.peso" type="text" name="peso" class="form-control" placeholder="Endereço">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">quantidade</label>
+                <input [(ngModel)]="produto.quantidade" type="text" name="quantidade" class="form-control" placeholder="1234">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="imagem">Selecione Imagem</label>
+            <input type="file" [(ngModel)]="produto.imagem" name="imagem" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+
+        <div *ngIf="message" class="alert alert-success" role="alert">
+            Cadastro Relizado com Sucesso
+        </div>
+        <div *ngIf="error" class="alert alert-danger" role="alert">
+            <h6 class="alert-heading">{{error}}</h6>
+            <!-- <li *ngFor="let err of erroBody">
+              {{err}}
+          </li> -->
+        </div>
+        <button type="submit" (click)="request()" [disabled]="disabled()" class="btn btn-primary">Cadastro</button>
+    </form>
+</div>

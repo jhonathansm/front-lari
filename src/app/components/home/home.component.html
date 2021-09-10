@@ -1,4 +1,4 @@
-<nav class="nav flex-column">
+<nav *ngIf="!validation" class="nav flex-column">
     <h6>{{usuario}}</h6>
     <a class="nav-link active" href="#">Active</a>
     <a class="nav-link" href="#">Link</a>
@@ -6,4 +6,6 @@
     <a class="nav-link disabled" href="#">Disabled</a>
 </nav>
 
-<p *ngIf="validation">Bem Vindo {{usuario}}</p>
+<!-- <p *ngIf="validation">Bem Vindo {{usuario}}</p> -->
+
+<app-admin *ngIf="validation"></app-admin>
